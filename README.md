@@ -1,1 +1,1 @@
-# shesvg
+# SHESVG Elementor Plugin
