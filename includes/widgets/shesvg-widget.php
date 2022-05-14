@@ -1,12 +1,28 @@
 <?php
+include_once 'shesvg-render.php';
+include_once 'shesvg-control.php';
 
 class Shesvg_Widget extends \Elementor\Widget_Base {
+
+    use Shesvg_render, Shesvg_Control;
+
+    public function __construct($data = [], $args = null) {
+        parent::__construct($data, $args);
+
+        wp_register_style( 'shesvg-widget-normalize', plugins_url( 'shesvg-elementor/assets/shesvg/css/normalize.css' ) );
+        wp_register_style( 'shesvg-widget-component', plugins_url( 'shesvg-elementor/assets/shesvg/css/component.css' ) );
+
+        wp_register_script( 'shesvg-widget-mina', plugins_url( 'shesvg-elementor/assets/shesvg/js/mina.js' ), [], null, true  );
+        wp_register_script( 'shesvg-widget-hover', plugins_url( 'shesvg-elementor/assets/shesvg/js/hovers.js' ), [ 'shesvg-widget-mina' ], null, true  );
+        wp_register_script( 'shesvg-widget-snapsvg', plugins_url( 'shesvg-elementor/assets/shesvg/js/snap.svg-min.js' ), [ 'jquery' ], null, true );
+    }
+
     public function get_name() {
         return 'shesvg_card_widget';
     }
 
     public function get_title() {
-        return esc_html__( 'SheSVG Card', 'shesvg' );
+        return esc_html__( 'Shape Hover Effect Card', 'shesvg' );
     }
 
     public function get_icon() {
@@ -18,70 +34,26 @@ class Shesvg_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'shesvg', 'pixelaar' ];
+        return [ 'shape', 'hover' ];
     }
 
-    protected function register_controls() {
+    public function get_style_depends() {
 
-        // Content Tab Start
-
-        $this->start_controls_section(
-            'section_title',
-            [
-                'label' => esc_html__( 'Card Title', 'shesvg' ),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'card_title',
-            [
-                'label' => esc_html__( 'Title', 'shesvg' ),
-                'type' => \Elementor\Controls_Manager::TEXTAREA,
-                'default' => esc_html__( 'Popular', 'shesvg' ),
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Content Tab End
-
-
-        // Style Tab Start
-
-        $this->start_controls_section(
-            'section_title_style',
-            [
-                'label' => esc_html__( 'Card Title', 'shesvg' ),
-                'tab' => \Elementor\Controls_Manager::TAB_STYLE,
-            ]
-        );
-
-        $this->add_control(
-            'title_color',
-            [
-                'label' => esc_html__( 'Card title color', 'shesvg' ),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .card-title' => 'color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->end_controls_section();
-
-        // Style Tab End
+        return [
+            'shesvg-widget-normalize',
+            'shesvg-widget-component',
+        ];
 
     }
 
-    protected function render() {
-        $settings = $this->get_settings_for_display();
-        $card_title = isset( $settings['card_title'] ) ? $settings['card_title'] : '';
-        ?>
+    public function get_script_depends() {
 
-        <p class="card-title"><?php echo $card_title; ?></p>
+        return [
+            'shesvg-widget-snapsvg',
+            'shesvg-widget-mina',
+            'shesvg-widget-hover',
+        ];
 
-        <?php
     }
 
 }
