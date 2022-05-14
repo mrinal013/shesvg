@@ -5,7 +5,7 @@ trait Shesvg_render {
     protected function render() {
         $settings = $this->get_settings_for_display();
         $shesvg_contents = $settings['shesvg'];
-        $svg_style = $settings['shesvg_svg_style'];
+        $svg_style = isset( $settings['shesvg_svg_style'] ) ? $settings['shesvg_svg_style'] : '';
 
         switch ( $svg_style ) {
             case 'svg-1':
@@ -25,7 +25,7 @@ trait Shesvg_render {
                 $data_path_to = 'm 180,34.57627 -180,0 L 0,0 180,0 z';
         }
 
-        $button_alignment = $settings['shesvg_button_align'];
+        $button_alignment = isset( $settings['shesvg_button_align'] ) ? $settings['shesvg_button_align'] : '';
 
         $default_post_id = get_option( 'elementor_active_kit' );
         $global_data = get_post_meta( $default_post_id, '_elementor_page_settings', true );
@@ -62,16 +62,21 @@ trait Shesvg_render {
         <section id="grid" class="grid clearfix">
             <?php
             foreach ( $shesvg_contents as $content ) :
+                $url = isset( $content['shesvg_grid_link']['url'] ) ? $content['shesvg_grid_link']['url'] : '#';
+                $image = isset( $content['shesvg_grid_image']['url'] ) ? $content['shesvg_grid_image']['url'] : '';
+                $title = isset( $content['shesvg_grid_title'] ) ? $content['shesvg_grid_title'] : '';
+                $subtitle = isset( $content['shesvg_grid_subtitle'] ) ? $content['shesvg_grid_subtitle'] : '';
+                $button = isset( $content['shesvg_grid_button'] ) ? $content['shesvg_grid_button'] : '';
             ?>
-            <a href="<?php echo $content['shesvg_grid_link']['url']; ?>" data-path-to="<?php echo $data_path_to; ?>" style="padding: 15px;">
+            <a href="<?php echo $url; ?>" data-path-to="<?php echo $data_path_to; ?>" style="padding: 15px;">
                 <figure>
-                    <img src="<?php echo $content['shesvg_grib_image']['url']; ?>"/>
+                    <img src="<?php echo $image; ?>"/>
                     <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="<?php echo $data_path; ?>"/></svg>
                     <figcaption>
-                        <h2><?php echo $content['shesvg_grid_title']; ?></h2>
-                        <p><?php echo $content['shesvg_grid_subtitle']; ?></p>
+                        <h2><?php echo $title; ?></h2>
+                        <p><?php echo $subtitle; ?></p>
                         <div class="button-wrapper" style="text-align: <?php echo $button_alignment; ?>">
-                            <button><?php echo $content['shesvg_grid_button']; ?></button>
+                            <button><?php echo $button; ?></button>
                         </div>
                     </figcaption>
                 </figure>
