@@ -16,6 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
+/**
+ * define constants
+ */
+define( 'SHESVG_ROOT', __DIR__);
+define( 'SHESVG_ASSET', SHESVG_ROOT . '/assets' );
+
 function shesvg_elementor_addon() {
 
     // Load plugin file

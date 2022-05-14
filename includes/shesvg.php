@@ -80,7 +80,13 @@ final class Plugin {
 
         if ( $this->is_compatible() ) {
             add_action( 'elementor/init', [ $this, 'init' ] );
+
+            add_action('wp_enqueue_scripts', [$this, 'wp_enqueue_scripts_cb']);
         }
+
+    }
+
+    public function wp_enqueue_scripts_cb() {
 
     }
 
@@ -200,7 +206,7 @@ final class Plugin {
     public function init() {
 
         add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
-
+        
     }
 
     /**
