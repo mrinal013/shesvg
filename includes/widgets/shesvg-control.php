@@ -292,6 +292,17 @@ trait Shesvg_Control {
             ]
         );
 
+        $this->add_control(
+            'shesvg_button_bg_color',
+            [
+                'label'     => esc_html__( 'Button background color', 'shesvg' ),
+                'type'      => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .grid button' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
 
         $this->start_controls_section(
