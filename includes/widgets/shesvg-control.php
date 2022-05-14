@@ -15,7 +15,7 @@ trait Shesvg_Control {
         $repeater = new \Elementor\Repeater();
 
         $repeater->add_control(
-            'shesvg_grib_image',
+            'shesvg_grid_image',
             [
                 'label'     => esc_html__( 'Choose Image', 'shesvg' ),
                 'type'      => \Elementor\Controls_Manager::MEDIA,
@@ -76,15 +76,15 @@ trait Shesvg_Control {
                 'fields'    => $repeater->get_controls(),
                 'default'   => [
                     [
-                        'grid_title'    => esc_html__( 'Crystalline #1', 'shesvg' ),
-                        'grid_subtitle' => esc_html__( 'Soko radicchio bunya nuts gram dulse.', 'shesvg' ),
+                        'shesvg_grid_title'    => esc_html__( 'Crystalline #1', 'shesvg' ),
+                        'shesvg_grid_subtitle' => esc_html__( 'Soko radicchio bunya nuts gram dulse.', 'shesvg' ),
                     ],
                     [
-                        'grid_title'    => esc_html__( 'Crystalline #2', 'shesvg' ),
-                        'grid_subtitle' => esc_html__( 'Item content. Click the edit button to change this text.', 'shesvg' ),
+                        'shesvg_grid_title'    => esc_html__( 'Crystalline #2', 'shesvg' ),
+                        'shesvg_grid_subtitle' => esc_html__( 'Item content. Click the edit button to change this text.', 'shesvg' ),
                     ],
                 ],
-                'title_field' => '{{{ grid_title }}}',
+                'title_field' => '{{{ shesvg_grid_title }}}',
             ]
         );
 
