@@ -20,7 +20,7 @@ trait Shesvg_Control {
                 'label'     => esc_html__( 'Choose Image', 'shesvg' ),
                 'type'      => \Elementor\Controls_Manager::MEDIA,
                 'default'   => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
+                    'url' => plugins_url('assets/shesvg/img/default-image.png', dirname( __DIR__ ) ),
                 ],
             ]
         );
@@ -102,6 +102,18 @@ trait Shesvg_Control {
         );
 
         $this->add_control(
+            'shesvg_image_height',
+            [
+                'label' => esc_html__( 'Image height', 'shesvg' ),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'min' => 100,
+                'max' => 1000,
+                'step' => 5,
+                'default' => 380,
+            ]
+        );
+
+        $this->add_control(
             'shesvg_svg_style',
             [
                 'label'     => esc_html__( 'SVG style', 'shesvg' ),
@@ -178,7 +190,7 @@ trait Shesvg_Control {
                 ],
                 'default' => [
                     'unit' => 'px',
-                    'size' => 5,
+                    'size' => 80,
                 ],
                 'selectors' => [
                     '{{WRAPPER}} .grid figure button' => 'width: {{SIZE}}{{UNIT}};',
@@ -231,6 +243,14 @@ trait Shesvg_Control {
                 'label' => esc_html__( 'Button padding', 'shesvg' ),
                 'type' => \Elementor\Controls_Manager::DIMENSIONS,
                 'size_units' => [ 'px', '%', 'em' ],
+                'default'   => [
+                    'top' => 5,
+                    'right' => 15,
+                    'bottom' => 5,
+                    'left' => 15,
+                    'unit' => 'px',
+                    'isLinked' => '',
+                ],
                 'selectors' => [
                     '{{WRAPPER}} .grid figure button' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
