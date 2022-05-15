@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * define constants
  */
-define( 'SHESVG_ROOT', __DIR__);
-define( 'SHESVG_ASSET', SHESVG_ROOT . '/assets' );
+define( 'SHESVG_ROOT', plugin_dir_path( __FILE__ ) );
+define( 'SHESVG_ASSET', SHESVG_ROOT . 'assets' );
 
 function shesvg_elementor_addon() {
 

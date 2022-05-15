@@ -9,12 +9,12 @@ class Shesvg_Widget extends \Elementor\Widget_Base {
     public function __construct($data = [], $args = null) {
         parent::__construct($data, $args);
 
-        wp_register_style( 'shesvg-widget-normalize', plugins_url( 'shesvg-elementor/assets/shesvg/css/normalize.css' ) );
-        wp_register_style( 'shesvg-widget-component', plugins_url( 'shesvg-elementor/assets/shesvg/css/component.css' ) );
+        wp_register_style( 'shesvg-widget-normalize', plugins_url( 'assets/shesvg/css/normalize.css', dirname(__DIR__) ) );
+        wp_register_style( 'shesvg-widget-component', plugins_url('assets/shesvg/css/component.css', dirname(__DIR__) ) );
 
-        wp_register_script( 'shesvg-widget-mina', plugins_url( 'shesvg-elementor/assets/shesvg/js/mina.js' ), [], null, true  );
-        wp_register_script( 'shesvg-widget-hover', plugins_url( 'shesvg-elementor/assets/shesvg/js/hovers.js' ), [ 'shesvg-widget-mina' ], null, true  );
-        wp_register_script( 'shesvg-widget-snapsvg', plugins_url( 'shesvg-elementor/assets/shesvg/js/snap.svg-min.js' ), [ 'jquery' ], null, true );
+        wp_register_script( 'shesvg-widget-mina', plugins_url( 'assets/shesvg/js/mina.js', dirname(__DIR__) ), [], null, true  );
+        wp_register_script( 'shesvg-widget-hover', plugins_url( 'assets/shesvg/js/hovers.js', dirname(__DIR__) ), [ 'shesvg-widget-mina' ], null, true  );
+        wp_register_script( 'shesvg-widget-snapsvg', plugins_url( 'assets/shesvg/js/snap.svg-min.js', dirname(__DIR__) ), [], null, true );
     }
 
     public function get_name() {
