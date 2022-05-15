@@ -1,5 +1,7 @@
 # SHESVG Elementor Plugin
+Shape Hover Effect with SVG.
 
+Idea from https://github.com/codrops/ShapeHoverEffectSVG
 ## Installation
 1. Download the repository
 2. Upload it via WP Dashboard -> Plugins -> Add new -> Upload
