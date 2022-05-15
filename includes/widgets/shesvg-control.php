@@ -275,6 +275,7 @@ trait Shesvg_Control {
                 'selectors' => [
                     '{{WRAPPER}} .grid h2' => 'color: {{VALUE}};',
                 ],
+                'default'   => '#3498DB',
             ]
         );
 
@@ -286,6 +287,7 @@ trait Shesvg_Control {
                 'selectors' => [
                     '{{WRAPPER}} .grid p' => 'color: {{VALUE}};',
                 ],
+                'default'   => '#AAAAAA',
             ]
         );
 
@@ -297,6 +299,7 @@ trait Shesvg_Control {
                 'selectors' => [
                     '{{WRAPPER}} .grid svg path' => 'fill: {{VALUE}};',
                 ],
+                'default'   => '#FFFFFF',
             ]
         );
 
@@ -309,6 +312,7 @@ trait Shesvg_Control {
                 'selectors' => [
                     '{{WRAPPER}} .grid button' => 'color: {{VALUE}};',
                 ],
+                'default'   => '#FFFFFF',
             ]
         );
 
@@ -339,6 +343,14 @@ trait Shesvg_Control {
                 'label'     => esc_html__( 'Title typography', 'shesvg' ),
                 'name'      => 'shesvg_title_typography',
                 'selector'  => '{{WRAPPER}} .grid h2',
+                'fields_options' => [
+                    'font_weight'   => [
+                        'default' => '500',
+                    ],
+                    'font_style'    => [
+                        'default'   => 'italic',
+                    ]
+                ],
             ]
         );
 
@@ -348,6 +360,14 @@ trait Shesvg_Control {
                 'label'     => esc_html__( 'Subtitle typography', 'shesvg' ),
                 'name'      => 'shesvg_subtitle_typography',
                 'selector'  => '{{WRAPPER}} .grid p',
+                'fields_options' => [
+                    'font_weight'   => [
+                        'default' => '500',
+                    ],
+                    'font_style'    => [
+                        'default'   => 'italic',
+                    ]
+                ],
             ]
         );
 
@@ -357,6 +377,17 @@ trait Shesvg_Control {
                 'label'     => esc_html__( 'Button typography', 'shesvg' ),
                 'name'      => 'shesvg_button_typography',
                 'selector'  => '{{WRAPPER}} .grid button',
+                'fields_options' => [
+                    'font_weight'   => [
+                        'default' => '500',
+                    ],
+                    'font_style'    => [
+                        'default'   => 'normal',
+                    ],
+                    'text_decoration'    => [
+                        'default'   => 'none',
+                    ]
+                ],
             ]
         );
 
