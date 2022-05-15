@@ -69,7 +69,7 @@ trait Shesvg_render {
                 $button = isset( $content['shesvg_grid_button'] ) ? $content['shesvg_grid_button'] : '';
             ?>
             <a href="<?php echo $url; ?>" data-path-to="<?php echo $data_path_to; ?>" style="padding: 15px;">
-                <figure>
+                <figure style="height: <?php echo $settings['shesvg_image_height'] . 'px'; ?>">
                     <img src="<?php echo $image; ?>"/>
                     <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="<?php echo $data_path; ?>"/></svg>
                     <figcaption>

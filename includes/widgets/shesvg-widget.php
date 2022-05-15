@@ -34,7 +34,7 @@ class Shesvg_Widget extends \Elementor\Widget_Base {
     }
 
     public function get_keywords() {
-        return [ 'shape', 'hover' ];
+        return [ 'shape', 'hover', 'svg' ];
     }
 
     public function get_style_depends() {
