@@ -29,7 +29,7 @@ trait Shesvg_Control {
             'shesvg_grid_title', [
                 'label'         => esc_html__( 'Title', 'plugin-name' ),
                 'type'          => \Elementor\Controls_Manager::TEXT,
-                'default'       => esc_html__( 'Crystalline' , 'shesvg' ),
+                'default'       => esc_html__( 'Item' , 'shesvg' ),
                 'label_block'   => true,
             ]
         );
@@ -71,16 +71,16 @@ trait Shesvg_Control {
         $this->add_control(
             'shesvg',
             [
-                'label'     => esc_html__( 'Repeater List', 'plugin-name' ),
+                'label'     => esc_html__( 'Grid Items', 'shesvg' ),
                 'type'      => \Elementor\Controls_Manager::REPEATER,
                 'fields'    => $repeater->get_controls(),
                 'default'   => [
                     [
-                        'shesvg_grid_title'    => esc_html__( 'Crystalline #1', 'shesvg' ),
+                        'shesvg_grid_title'    => esc_html__( 'Grid Item #1', 'shesvg' ),
                         'shesvg_grid_subtitle' => esc_html__( 'Soko radicchio bunya nuts gram dulse.', 'shesvg' ),
                     ],
                     [
-                        'shesvg_grid_title'    => esc_html__( 'Crystalline #2', 'shesvg' ),
+                        'shesvg_grid_title'    => esc_html__( 'Grid Item #2', 'shesvg' ),
                         'shesvg_grid_subtitle' => esc_html__( 'Item content. Click the edit button to change this text.', 'shesvg' ),
                     ],
                 ],
