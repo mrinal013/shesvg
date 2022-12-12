@@ -1,4 +1,4 @@
-# SHESVG Elementor Plugin
+# SHESVG Elementor Plugin for Razibmarketing
 Shape Hover Effect with SVG.
 
 Idea from https://github.com/codrops/ShapeHoverEffectSVG
